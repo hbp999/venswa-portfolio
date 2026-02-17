@@ -33,7 +33,7 @@ export function HeroSection() {
                     </div>
 
                     {/* Right Side Form */}
-                    <div className="shrink-0 w-[var(--spacing-lg)] pointer-events-auto">
+                    <div className="shrink-0 w-full max-w-[var(--spacing-lg)] lg:w-[var(--spacing-lg)] pointer-events-auto mr-4 lg:mr-0">
                         <HeroContactForm />
                     </div>
                 </Container>
