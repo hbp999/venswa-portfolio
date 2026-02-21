@@ -3,26 +3,13 @@ import { Container } from "@/components/layout/Container";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
+import { AboutHero } from "@/components/about/AboutHero";
 
 export default function AboutPage() {
     return (
         <>
             {/* Hero / About the Agency */}
-            <Section className="bg-soft-white pt-32 pb-16">
-                <Container>
-                    <div className="max-w-3xl">
-                        <h1 className="font-display text-4xl font-bold tracking-tight text-dark-text sm:text-6xl mb-6">
-                            About Venswa Studio
-                        </h1>
-                        <p className="text-xl leading-relaxed text-dark-text/70 mb-8">
-                            Venswa Studio is a digital marketing agency helping businesses grow through strategy, creativity, and consistent online execution.
-                        </p>
-                        <p className="text-2xl font-semibold text-royal-blue">
-                            We don’t just post content — we build brands digitally.
-                        </p>
-                    </div>
-                </Container>
-            </Section>
+            <AboutHero />
 
             {/* What We've Done */}
             <Section className="bg-pure-white">
@@ -77,11 +64,14 @@ export default function AboutPage() {
                                 ))}
                             </div>
                         </div>
-                        <div className="relative">
-                            {/* Abstract visual or image could go here */}
-                            <div className="aspect-square rounded-2xl bg-gradient-to-br from-royal-blue/5 to-emerald-green/5 flex items-center justify-center">
-                                <div className="text-royal-blue font-display text-9xl font-bold opacity-10">V</div>
-                            </div>
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                            <Image
+                                src="/images/4-3image.png"
+                                alt="Why Choose Venswa"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
                     </div>
                 </Container>

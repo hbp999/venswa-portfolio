@@ -74,7 +74,7 @@ export function HeroContactForm() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="w-full max-w-[var(--spacing-lg)] p-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl"
+            className="w-full p-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl"
         >
             <div className="mb-6 text-center">
                 <h3 className="text-2xl font-display font-bold text-gray-900 mb-2">Get Started</h3>
@@ -82,13 +82,14 @@ export function HeroContactForm() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
                     <div className="space-y-1">
                         <input
                             name="name"
                             type="text"
                             required
                             placeholder="Name"
+                            autoComplete="name"
                             value={formData.name}
                             onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm transition-all hover:bg-white"
@@ -100,6 +101,7 @@ export function HeroContactForm() {
                             type="tel"
                             required
                             placeholder="Phone"
+                            autoComplete="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm transition-all hover:bg-white"

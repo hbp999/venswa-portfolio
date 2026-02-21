@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Ubuntu } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -7,6 +7,12 @@ import { SiteHeader } from "@/components/layout/SiteHeader";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const ubuntu = Ubuntu({
+  variable: "--font-ubuntu",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 const poppins = Poppins({
@@ -51,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-soft-white text-dark-text selection:bg-royal-blue selection:text-pure-white`}
+        className={`${inter.variable} ${poppins.variable} ${ubuntu.variable} font-sans antialiased bg-soft-white text-dark-text selection:bg-royal-blue selection:text-pure-white`}
       >
         <div className="min-h-dvh">
           <SiteHeader />

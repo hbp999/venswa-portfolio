@@ -2,6 +2,7 @@ import { Section } from "@/components/layout/Section";
 import { supabase } from "@/lib/supabaseClient";
 import { WorkHero } from "@/components/work/WorkHero";
 import { WorkGrid } from "@/components/work/WorkGrid";
+import { ProcessWorkflow } from "@/components/work/ProcessWorkflow";
 import { ClientLogos } from "@/components/ui/ClientLogos";
 
 type ProjectRow = {
@@ -31,6 +32,8 @@ export default async function WorkPage() {
   return (
     <>
       <WorkHero />
+
+      <ProcessWorkflow />
 
       <Section className="bg-soft-white/50 min-h-screen pt-0">
         <WorkGrid projects={safeProjects} />

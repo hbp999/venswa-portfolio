@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Section } from "@/components/layout/Section";
 
-export function WorkHero() {
+export function AboutHero() {
     return (
         <Section className="bg-soft-white pt-32 pb-16 md:pt-40 md:pb-24 overflow-x-clip relative">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-royal-blue/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
@@ -16,14 +16,20 @@ export function WorkHero() {
                     transition={{ duration: 0.6 }}
                     className="font-display text-5xl md:text-6xl font-bold tracking-tight text-dark-text mb-6"
                 >
-                    Our Work
+                    About Venswa Studio
                 </motion.h1>
-                <motion.p
-                    transition={{ delay: 0.4 }}
-                    className="mt-5 text-lg leading-7 text-dark-text/70 sm:text-lg"
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                    Discover how we&apos;ve helped ambitious brands transform their digital presence and drive measurable growth through creative strategy.
-                </motion.p>
+                    <p className="mt-5 text-xl leading-relaxed text-dark-text/70 mb-8">
+                        Venswa Studio is a digital marketing agency helping businesses grow through strategy, creativity, and consistent online execution.
+                    </p>
+                    <p className="text-2xl font-semibold text-royal-blue">
+                        We don’t just post content — we build brands digitally.
+                    </p>
+                </motion.div>
             </div>
         </Section>
     );
