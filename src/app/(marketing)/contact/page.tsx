@@ -11,7 +11,7 @@ export default function ContactPage() {
     <>
       <ContactHero />
 
-      <Section className="bg-soft-white/50 min-h-screen">
+      <Section className="bg-bg-surface/50 min-h-screen">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
           {/* Left Side - Brand Message & Contact Details */}
           <div className="space-y-8">
@@ -19,7 +19,7 @@ export default function ContactPage() {
               <div className="font-display text-xl font-semibold mb-4">
                 Let&apos;s build your next big campaign
               </div>
-              <p className="text-base text-dark-text/70 leading-relaxed mb-6">
+              <p className="text-base text-text-secondary leading-relaxed mb-6">
                 We&apos;re here to help your brand grow with strategic social media
                 marketing and compelling content that drives real results.
               </p>
@@ -32,22 +32,22 @@ export default function ContactPage() {
               <div className="font-display text-lg font-semibold mb-4">
                 Get in Touch
               </div>
-              <div className="space-y-3 text-sm text-dark-text/70">
+              <div className="space-y-3 text-sm text-text-secondary">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-royal-blue/10 flex items-center justify-center shrink-0">
-                    <Mail className="w-4 h-4 text-royal-blue" />
+                  <div className="w-8 h-8 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 text-accent-primary" />
                   </div>
                   <span>hello@venswa.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-royal-blue/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-4 h-4 text-royal-blue" />
+                  <div className="w-8 h-8 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-accent-primary" />
                   </div>
                   <span>9491024999 / 9966567879</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-royal-blue/10 flex items-center justify-center shrink-0">
-                    <MapPin className="w-4 h-4 text-royal-blue" />
+                  <div className="w-8 h-8 rounded-full bg-accent-primary/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-accent-primary" />
                   </div>
                   <span>Vijayawada, Andhra Pradesh, India</span>
                 </div>
@@ -61,7 +61,7 @@ export default function ContactPage() {
               <div className="flex gap-4">
                 <a
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-royal-blue/10 text-royal-blue transition-colors hover:bg-royal-blue/20"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary transition-colors hover:bg-accent-primary/20"
                   aria-label="Instagram"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export default function ContactPage() {
                 </a>
                 <a
                   href="#"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-royal-blue/10 text-royal-blue transition-colors hover:bg-royal-blue/20"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-primary/10 text-accent-primary transition-colors hover:bg-accent-primary/20"
                   aria-label="Facebook"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

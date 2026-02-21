@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Ubuntu } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
@@ -55,15 +56,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${poppins.variable} ${ubuntu.variable} font-sans antialiased bg-soft-white text-dark-text selection:bg-royal-blue selection:text-pure-white`}
+        className={`${inter.variable} ${poppins.variable} ${ubuntu.variable} font-sans antialiased bg-bg-primary text-text-primary selection:bg-accent-primary selection:text-white`}
       >
-        <div className="min-h-dvh">
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <div className="min-h-dvh">
+            <SiteHeader />
+            <main>{children}</main>
+            <SiteFooter />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

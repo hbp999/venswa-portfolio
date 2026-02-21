@@ -7,6 +7,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
 const navItems = [
@@ -48,7 +49,7 @@ export function SiteHeader() {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={`fixed top-0 w-full z-50 transition-colors duration-300 ${scrolled
-        ? 'bg-pure-white/80 backdrop-blur-md border-b border-soft-grey/50'
+        ? 'bg-bg-primary/80 backdrop-blur-md border-b border-border-color/50'
         : 'bg-transparent'
         }`}
     >
@@ -66,7 +67,7 @@ export function SiteHeader() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
-          <div className="flex items-center gap-1 rounded-full bg-black/5 backdrop-blur-2xl px-2 py-1.5 border border-white/20 ring-1 ring-black/5 shadow-2xl overflow-hidden">
+          <div className="flex items-center gap-1 rounded-full bg-white/5 backdrop-blur-2xl px-2 py-1.5 border border-white/10 ring-1 ring-white/10 shadow-2xl overflow-hidden">
             {navItems.map((item) => {
               const isActive = pathname === item.href
               return (
@@ -78,7 +79,7 @@ export function SiteHeader() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative block px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-full ${isActive ? 'text-pure-white' : 'text-dark-text/80'
+                    className={`relative block px-5 py-2.5 text-sm font-medium transition-all duration-300 rounded-full ${isActive ? 'text-white' : 'text-text-secondary hover:text-text-primary'
                       }`}
                   >
                     {/* Hover state glass effect */}
@@ -89,14 +90,14 @@ export function SiteHeader() {
                           tap: { scale: 0.98, opacity: 0.8 },
                         }}
                         initial={{ opacity: 0, scale: 0.95 }}
-                        className="absolute inset-0 bg-white/40 backdrop-blur-md rounded-full z-0 shadow-inner"
+                        className="absolute inset-0 bg-text-primary/5 backdrop-blur-md rounded-full z-0 border border-text-primary/10"
                       />
                     )}
 
                     {isActive && (
                       <motion.div
                         layoutId="activeNavDesktop"
-                        className="absolute inset-0 bg-gradient-to-br from-royal-blue to-royal-blue/90 rounded-full shadow-[0_4px_12px_rgba(46,76,184,0.3)] backdrop-blur-sm"
+                        className="absolute inset-0 bg-linear-to-br from-accent-primary to-accent-secondary rounded-full shadow-[0_4px_20px_rgba(99,102,241,0.4)] backdrop-blur-sm"
                         transition={{ type: "spring", stiffness: 300, damping: 30 }}
                       />
                     )}
@@ -116,27 +117,28 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Button href="/contact" variant="primary" className="hidden sm:inline-flex">
             Start a Project
           </Button>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-50 rounded-full bg-soft-white hover:bg-soft-grey transition-colors"
+            className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-50 rounded-full bg-white/5 hover:bg-white/10 transition-colors border border-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             <motion.span
               animate={mobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-dark-text origin-center rounded-full"
+              className="block w-5 h-0.5 bg-white origin-center rounded-full"
             />
             <motion.span
               animate={mobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-5 h-0.5 bg-dark-text rounded-full"
+              className="block w-5 h-0.5 bg-white rounded-full"
             />
             <motion.span
               animate={mobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-dark-text origin-center rounded-full"
+              className="block w-5 h-0.5 bg-white origin-center rounded-full"
             />
           </button>
         </div>
@@ -150,7 +152,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-pure-white md:hidden flex flex-col pt-24 pb-10 px-6"
+            className="fixed inset-0 z-40 bg-bg-surface md:hidden flex flex-col pt-24 pb-10 px-6"
           >
             <nav className="flex flex-col gap-6 text-center">
               {navItems.map((item, index) => {
@@ -164,7 +166,7 @@ export function SiteHeader() {
                   >
                     <Link
                       href={item.href}
-                      className={`text-3xl font-display font-bold tracking-tight ${isActive ? 'text-royal-blue' : 'text-dark-text'
+                      className={`text-3xl font-display font-bold tracking-tight ${isActive ? 'text-accent-primary' : 'text-text-primary'
                         }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -177,8 +179,16 @@ export function SiteHeader() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-8 flex justify-center"
+            >
+              <ThemeToggle />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-auto"
+              className="mt-6"
             >
               <Button
                 href="/contact"

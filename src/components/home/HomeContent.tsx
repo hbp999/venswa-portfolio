@@ -6,6 +6,7 @@ import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ClientLogos } from "@/components/ui/ClientLogos";
+import Image from "next/image";
 import { useRef } from 'react';
 import { motion } from 'framer-motion'
 import {
@@ -15,11 +16,14 @@ import {
     Camera,
     TrendingUp,
     Video,
-    Palette
+    Palette,
+    ArrowUpRight
 } from 'lucide-react';
 import { fadeInUp, fadeIn, staggerContainer, staggerItem } from '@/components/providers/MotionProvider'
 import { HeroSection } from "@/components/home/HeroSection"; // Changed from HeroScrollAnimation
 import { ClientOnly } from "@/components/ui/ClientOnly";
+import { InstagramReels } from "@/components/home/InstagramReels";
+import { ParallaxWrapper, MobileParallaxFallback } from "@/components/providers/ParallaxWrapper";
 
 export type ClientRow = {
     id: string;
@@ -80,16 +84,16 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
             </ClientOnly>
 
             {/* Content that scrolls over the sticky hero */}
-            <div className="relative z-10 bg-white">
+            <div className="relative z-10 bg-bg-primary">
                 <ClientLogos />
 
-                <Section className="bg-soft-white">
+                <Section className="bg-bg-surface relative border-y border-border-color/30">
                     <div className="flex items-end justify-between gap-6">
                         <div className="flex-1 max-w-3xl">
-                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl text-text-primary">
                                 Featured work
                             </h2>
-                            <p className="mt-3 text-base text-dark-text/70 sm:text-lg leading-relaxed">
+                            <p className="mt-3 text-base text-text-secondary sm:text-lg leading-relaxed">
                                 Campaigns and content built to drive measurable outcomes.
                             </p>
                         </div>
@@ -116,27 +120,94 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                                 <motion.div
                                     key={project.id}
                                     variants={staggerItem}
+                                    className="h-full"
                                 >
-                                    <Link href={href} className="group">
-                                        <Card className="h-full overflow-hidden p-0 transition-transform group-hover:-translate-y-px">
-                                            <div className="relative aspect-16/10 w-full bg-soft-grey flex items-center justify-center text-dark-text/20">
-                                                <div className="font-semibold text-xs tracking-widest uppercase">Layout Placeholder</div>
-                                            </div>
-                                            <div className="p-6">
-                                                {clientName && (
-                                                    <div className="text-xs font-medium text-dark-text/60">
-                                                        {clientName}
+                                    <ParallaxWrapper
+                                        offset={index % 2 === 0 ? 30 : 60}
+                                        useViewportScroll={true}
+                                        className="h-full"
+                                    >
+                                        <Link href={href} className="group block h-full">
+                                            <Card className="h-full overflow-hidden p-0 bg-bg-primary border-border-color/60 group hover:-translate-y-1">
+                                                <div className="relative aspect-4/3 w-full overflow-hidden bg-bg-surface flex items-center justify-center text-text-secondary/40">
+                                                    {/* Use AI placeholders for featured work 1 and 2, else generic layout text */}
+                                                    {(index === 0 || index === 1) ? (
+                                                        <Image
+                                                            src={index === 0 ? "/images/placeholders/project_cover_1.png" : "/images/placeholders/project_cover_2.png"}
+                                                            alt={project.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                                        />
+                                                    ) : (
+                                                        <div className="font-semibold text-xs tracking-widest uppercase relative z-10">Layout Placeholder</div>
+                                                    )}
+
+                                                    {/* Overlay on hover */}
+                                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-20" />
+                                                    <div className="absolute top-4 right-4 z-30 bg-bg-primary/90 backdrop-blur-md rounded-full p-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                                        <ArrowUpRight className="w-5 h-5 text-text-primary" />
                                                     </div>
-                                                )}
-                                                <div className="mt-2 font-display text-lg font-semibold">
-                                                    {project.title}
                                                 </div>
-                                                <div className="mt-2 text-sm text-dark-text/70">
-                                                    View case study →
+
+                                                <div className="p-6 bg-bg-primary flex-1 flex flex-col">
+                                                    {clientName && (
+                                                        <div className="text-xs font-bold uppercase tracking-wider text-accent-primary/80 mb-2">
+                                                            {clientName}
+                                                        </div>
+                                                    )}
+                                                    <h3 className="font-display text-xl font-bold text-text-primary group-hover:text-accent-primary transition-colors duration-300 mb-2">
+                                                        {project.title}
+                                                    </h3>
+                                                    <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                                                        <span className="text-[10px] uppercase tracking-wide px-2 py-1 rounded bg-bg-surface/50 text-text-secondary">
+                                                            View case study
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Card>
-                                    </Link>
+                                            </Card>
+                                        </Link>
+                                    </ParallaxWrapper>
+                                    <MobileParallaxFallback className="h-full">
+                                        <Link href={href} className="group block h-full">
+                                            <Card className="h-full overflow-hidden p-0 bg-bg-primary border-border-color/60 group hover:-translate-y-1">
+                                                <div className="relative aspect-4/3 w-full overflow-hidden bg-bg-surface flex items-center justify-center text-text-secondary/40">
+                                                    {/* Use AI placeholders for featured work 1 and 2, else generic layout text */}
+                                                    {(index === 0 || index === 1) ? (
+                                                        <Image
+                                                            src={index === 0 ? "/images/placeholders/project_cover_1.png" : "/images/placeholders/project_cover_2.png"}
+                                                            alt={project.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                                        />
+                                                    ) : (
+                                                        <div className="font-semibold text-xs tracking-widest uppercase relative z-10">Layout Placeholder</div>
+                                                    )}
+
+                                                    {/* Overlay on hover */}
+                                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 z-20" />
+                                                    <div className="absolute top-4 right-4 z-30 bg-bg-primary/90 backdrop-blur-md rounded-full p-2 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                                                        <ArrowUpRight className="w-5 h-5 text-text-primary" />
+                                                    </div>
+                                                </div>
+
+                                                <div className="p-6 bg-bg-primary flex-1 flex flex-col">
+                                                    {clientName && (
+                                                        <div className="text-xs font-bold uppercase tracking-wider text-accent-primary/80 mb-2">
+                                                            {clientName}
+                                                        </div>
+                                                    )}
+                                                    <h3 className="font-display text-xl font-bold text-text-primary group-hover:text-accent-primary transition-colors duration-300 mb-2">
+                                                        {project.title}
+                                                    </h3>
+                                                    <div className="mt-auto pt-4 flex flex-wrap gap-2">
+                                                        <span className="text-[10px] uppercase tracking-wide px-2 py-1 rounded bg-bg-surface/50 text-text-secondary">
+                                                            View case study
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </Card>
+                                        </Link>
+                                    </MobileParallaxFallback>
                                 </motion.div>
                             );
                         })}
@@ -149,7 +220,7 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                     </div>
                 </Section>
 
-                <Section className="bg-pure-white">
+                <Section className="bg-bg-primary">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
@@ -158,10 +229,10 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                         className="flex items-end justify-between gap-6"
                     >
                         <div className="flex-1 max-w-3xl">
-                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl text-text-primary">
                                 Services snapshot
                             </h2>
-                            <p className="mt-3 text-base text-dark-text/70 sm:text-lg leading-relaxed">
+                            <p className="mt-3 text-base text-text-secondary sm:text-lg leading-relaxed">
                                 Venswa Studio is a digital marketing agency focused on helping brands grow through strategy, creativity, and consistent execution across Instagram, Facebook, and YouTube.
                             </p>
                         </div>
@@ -191,26 +262,45 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
 
                             // Alternate colors for a more dynamic look
                             const colors = [
-                                "bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white",
-                                "bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white",
-                                "bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white",
-                                "bg-pink-50 text-pink-600 group-hover:bg-pink-600 group-hover:text-white",
+                                "bg-indigo-500/10 text-accent-primary group-hover:bg-accent-primary group-hover:text-white",
+                                "bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white",
+                                "bg-cyan-500/10 text-accent-secondary group-hover:bg-accent-secondary group-hover:text-white",
+                                "bg-purple-500/10 text-purple-400 group-hover:bg-purple-500 group-hover:text-white",
                             ];
                             const colorClass = colors[index % colors.length];
 
                             return (
-                                <motion.div key={service.id} variants={staggerItem}>
-                                    <Card className="p-8 h-full group hover:border-transparent hover:shadow-xl transition-all duration-300">
-                                        <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm", colorClass)}>
-                                            <Icon className="h-7 w-7" />
-                                        </div>
-                                        <div className="mt-6 font-display text-xl font-bold text-dark-text group-hover:text-royal-blue transition-colors">
-                                            {service.title}
-                                        </div>
-                                        <p className="mt-3 text-base leading-relaxed text-dark-text/60">
-                                            {service.short_desc ?? ""}
-                                        </p>
-                                    </Card>
+                                <motion.div key={service.id} variants={staggerItem} className="h-full">
+                                    <ParallaxWrapper
+                                        offset={index % 2 === 0 ? 20 : 50}
+                                        useViewportScroll={true}
+                                        className="h-full"
+                                    >
+                                        <Card className="p-8 h-full bg-bg-surface group hover:border-accent-primary/40 hover:-translate-y-1">
+                                            <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm", colorClass)}>
+                                                <Icon className="h-7 w-7" />
+                                            </div>
+                                            <div className="mt-6 font-display text-xl font-bold text-text-primary group-hover:text-accent-primary transition-colors">
+                                                {service.title}
+                                            </div>
+                                            <p className="mt-3 text-base leading-relaxed text-text-secondary">
+                                                {service.short_desc ?? ""}
+                                            </p>
+                                        </Card>
+                                    </ParallaxWrapper>
+                                    <MobileParallaxFallback className="h-full">
+                                        <Card className="p-8 h-full bg-bg-surface group hover:border-accent-primary/40 hover:-translate-y-1">
+                                            <div className={cn("h-14 w-14 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm", colorClass)}>
+                                                <Icon className="h-7 w-7" />
+                                            </div>
+                                            <div className="mt-6 font-display text-xl font-bold text-text-primary group-hover:text-accent-primary transition-colors">
+                                                {service.title}
+                                            </div>
+                                            <p className="mt-3 text-base leading-relaxed text-text-secondary">
+                                                {service.short_desc ?? ""}
+                                            </p>
+                                        </Card>
+                                    </MobileParallaxFallback>
                                 </motion.div>
                             );
                         })}
@@ -223,8 +313,10 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                     </div>
                 </Section>
 
+                <InstagramReels />
+
                 {testimonials.length > 0 ? (
-                    <Section className="bg-soft-white">
+                    <Section className="bg-bg-surface relative border-y border-border-color/30">
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
@@ -232,10 +324,10 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                             variants={fadeInUp}
                             className="max-w-4xl"
                         >
-                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
+                            <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl text-text-primary">
                                 Testimonials
                             </h2>
-                            <p className="mt-3 text-base text-dark-text/70 sm:text-lg leading-relaxed">
+                            <p className="mt-3 text-base text-text-secondary sm:text-lg leading-relaxed">
                                 What clients say after we ship the work.
                             </p>
                         </motion.div>
@@ -252,25 +344,25 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                                     key={t.id}
                                     variants={staggerItem}
                                 >
-                                    <Card className="p-8 h-full relative overflow-hidden group">
+                                    <Card className="p-8 h-full relative overflow-hidden group hover:border-accent-primary/30 transition-colors hover:-translate-y-1">
                                         <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                                            <Megaphone className="h-24 w-24 text-dark-text" />
+                                            <Megaphone className="h-24 w-24 text-text-secondary" />
                                         </div>
                                         <div className="relative z-10">
                                             <div className="flex items-center gap-4">
-                                                <div className="h-12 w-12 rounded-full bg-royal-blue/10 flex items-center justify-center text-royal-blue font-bold">
+                                                <div className="h-12 w-12 rounded-full bg-accent-primary/10 flex items-center justify-center text-accent-primary font-bold">
                                                     {t.client_name?.[0] || 'V'}
                                                 </div>
                                                 <div>
-                                                    <div className="font-display text-base font-semibold">
+                                                    <div className="font-display text-base font-semibold text-text-primary">
                                                         {t.client_name ?? ""}
                                                     </div>
-                                                    <div className="text-xs text-dark-text/60">
+                                                    <div className="text-xs text-text-secondary">
                                                         {t.role ?? ""}
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p className="mt-6 text-sm italic leading-7 text-dark-text/80">
+                                            <p className="mt-6 text-sm italic leading-7 text-text-secondary">
                                                 &ldquo;{t.quote ?? ""}&rdquo;
                                             </p>
                                         </div>
@@ -302,7 +394,7 @@ export function HomeContent({ projects, services, testimonials }: HomeContentPro
                                     Ready to take your business to the next level? Join the hundreds of companies that trust us with their digital presence.
                                 </p>
                             </div>
-                            <Button href="/contact" variant="secondary" className="bg-white text-royal-blue hover:bg-gray-50 border-0 py-5 px-10 text-lg font-bold shadow-xl transition-all hover:scale-105">
+                            <Button href="/contact" variant="secondary" className="bg-white text-accent-primary hover:bg-gray-50 border-0 py-5 px-10 text-lg font-bold shadow-xl transition-all hover:scale-105">
                                 Start a Project
                             </Button>
                         </div>

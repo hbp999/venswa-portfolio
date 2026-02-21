@@ -1,14 +1,40 @@
 @import "tailwindcss";
 
 :root {
-  /* Design tokens (Venswa Studios – Light Theme) */
-  --soft-white: #f7f8fc;
-  --pure-white: #ffffff;
-  --royal-blue: #2e4cb8;
-  --emerald-green: #1fb57a;
+  /* Design tokens (Venswa Studios – Premium Dark Theme) */
+  --bg-primary: #0A0A0A;
+  --bg-surface: #111827;
+  --accent-primary: #6366F1;
+  --accent-secondary: #06B6D4;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --border-color: #374151;
+
+  /* Legacy Design tokens mapped for dark mode backwards compatibility */
+  --soft-white: var(--bg-surface);
+  --pure-white: var(--bg-primary);
+  --royal-blue: var(--accent-primary);
+  --emerald-green: var(--accent-secondary);
   --metallic-gold: #d4a63f;
-  --soft-grey: #e6e8f0;
-  --dark-text: #1a1a1a;
+  --soft-grey: #1F2937;
+  --dark-text: var(--text-primary);
+}
+
+.light {
+  /* Light Theme Mapping overrides (The original design) */
+  --bg-primary: #FFFFFF;
+  --bg-surface: #F9FAFB;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --border-color: #E5E7EB;
+
+  --pure-white: #FFFFFF;
+  --soft-white: #F9FAFB;
+  --soft-grey: #F3F4F6;
+  --dark-text: #111827;
+}
+
+:root {
 
   /* Spacing scale (8px system) - UPDATED BY USER REQUEST */
   --spacing-xs: 8px;
@@ -30,7 +56,16 @@
 
 /* Tailwind CSS v4 theme configuration */
 @theme inline {
-  /* Colors */
+  /* Premium Dark Theme Colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-color: var(--border-color);
+
+  /* Legacy Colors */
   --color-soft-white: var(--soft-white);
   --color-pure-white: var(--pure-white);
   --color-royal-blue: var(--royal-blue);
@@ -77,23 +112,23 @@ body {
 }
 
 body {
-  background: var(--soft-white);
-  color: var(--dark-text);
-  background-image: radial-gradient(circle at 1px 1px, rgba(46, 76, 184, 0.03) 1px, transparent 0);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  background-image: radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.05) 1px, transparent 0);
   background-size: 40px 40px;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--royal-blue) 25%, white);
+  background: color-mix(in oklab, var(--accent-primary) 25%, white);
 }
 
 /* Background alternation utility */
 .bg-alternate {
-  background: var(--pure-white);
+  background: var(--bg-primary);
 }
 
 .bg-alternate:nth-child(even) {
-  background: var(--soft-white);
+  background: var(--bg-surface);
 }
 
 /* Client logos scrolling animation */

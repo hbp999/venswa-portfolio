@@ -74,11 +74,11 @@ export function HeroContactForm() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="w-full p-8 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/60 shadow-2xl"
+            className="w-full p-8 rounded-2xl bg-bg-surface/80 backdrop-blur-xl border border-border-color/50 shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
         >
             <div className="mb-6 text-center">
-                <h3 className="text-2xl font-display font-bold text-gray-900 mb-2">Get Started</h3>
-                <p className="text-gray-600 text-sm">Tell us about your project.</p>
+                <h3 className="text-2xl font-display font-bold text-text-primary mb-2">Get Started</h3>
+                <p className="text-text-secondary text-sm">Tell us about your project.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -92,7 +92,7 @@ export function HeroContactForm() {
                             autoComplete="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm transition-all hover:bg-white"
+                            className="w-full px-4 py-3 rounded-lg bg-bg-primary/50 border border-border-color text-text-primary placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 text-sm transition-all hover:bg-bg-primary"
                         />
                     </div>
                     <div className="space-y-1">
@@ -104,7 +104,7 @@ export function HeroContactForm() {
                             autoComplete="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm transition-all hover:bg-white"
+                            className="w-full px-4 py-3 rounded-lg bg-bg-primary/50 border border-border-color text-text-primary placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 text-sm transition-all hover:bg-bg-primary"
                         />
                     </div>
                 </div>
@@ -117,7 +117,7 @@ export function HeroContactForm() {
                         placeholder="Email Address"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm transition-all hover:bg-white"
+                        className="w-full px-4 py-3 rounded-lg bg-bg-primary/50 border border-border-color text-text-primary placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 text-sm transition-all hover:bg-bg-primary"
                     />
                 </div>
 
@@ -129,7 +129,7 @@ export function HeroContactForm() {
                         placeholder="How can we help you?"
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg bg-white/60 border border-gray-200 text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-royal-blue/50 text-sm resize-none transition-all hover:bg-white"
+                        className="w-full px-4 py-3 rounded-lg bg-bg-primary/50 border border-border-color text-text-primary placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 text-sm resize-none transition-all hover:bg-bg-primary"
                     />
                 </div>
 
@@ -152,7 +152,7 @@ export function HeroContactForm() {
                             type="submit"
                             variant="primary"
                             disabled={isSubmitting}
-                            className="w-full bg-royal-blue hover:bg-royal-blue/90 text-white border-none shadow-lg py-4 text-base font-bold"
+                            className="w-full bg-accent-primary hover:bg-accent-primary/90 text-white border-none shadow-lg shadow-accent-primary/20 py-4 text-base font-bold"
                         >
                             {isSubmitting ? (
                                 <>

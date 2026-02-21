@@ -8,7 +8,7 @@ export interface HeadingProps {
 }
 
 export function Heading({ children, className, level = 2 }: HeadingProps) {
-  const baseClasses = 'font-display font-semibold text-dark-text'
+  const baseClasses = 'font-display font-semibold text-text-primary'
   
   const sizeClasses = {
     1: 'text-4xl md:text-6xl lg:text-7xl leading-tight',
@@ -41,7 +41,7 @@ export interface SubheadingProps {
 
 export function Subheading({ children, className }: SubheadingProps) {
   return (
-    <p className={cn('text-lg md:text-xl lg:text-2xl font-body text-dark-text/80 leading-relaxed', className)}>
+    <p className={cn('text-lg md:text-xl lg:text-2xl font-body text-text-secondary leading-relaxed', className)}>
       {children}
     </p>
   )
@@ -61,7 +61,7 @@ export function Body({ children, className, size = 'md' }: BodyProps) {
   }
 
   return (
-    <p className={cn('font-body text-dark-text/70 leading-relaxed', sizeClasses[size], className)}>
+    <p className={cn('font-body text-text-secondary leading-relaxed', sizeClasses[size], className)}>
       {children}
     </p>
   )

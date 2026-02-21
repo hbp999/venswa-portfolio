@@ -15,8 +15,8 @@ export function Section({
   id 
 }: SectionProps) {
   const backgroundClasses = {
-    'white': 'bg-pure-white',
-    'soft-white': 'bg-soft-white',
+    'white': 'bg-bg-primary',
+    'soft-white': 'bg-bg-surface',
     'alternate': 'bg-alternate'
   }
 

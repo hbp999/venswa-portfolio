@@ -82,14 +82,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       {/* Hero Section */}
-      <Section className="bg-soft-white">
+      <Section className="bg-bg-surface">
         <div className="max-w-4xl">
           <div className="mb-6">
             {client && (
               <div className="flex items-center gap-4">
-                <div className="h-12 w-12 rounded-full bg-soft-grey flex items-center justify-center text-[10px] text-dark-text/40 border">Logo</div>
+                <div className="h-12 w-12 rounded-full bg-bg-surface flex items-center justify-center text-[10px] text-text-secondary border">Logo</div>
                 <div>
-                  <div className="text-sm font-medium text-dark-text/60">Client</div>
+                  <div className="text-sm font-medium text-text-secondary">Client</div>
                   <div className="font-display text-lg font-semibold">{client.name}</div>
                 </div>
               </div>
@@ -101,21 +101,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </h1>
 
           {projectData.description && (
-            <p className="mt-4 text-base text-dark-text/70 sm:text-lg leading-relaxed">
+            <p className="mt-4 text-base text-text-secondary sm:text-lg leading-relaxed">
               {projectData.description}
             </p>
           )}
 
           <div className="mt-6 flex flex-wrap gap-3">
             {projectData.industry && (
-              <span className="inline-flex items-center rounded-[12px] bg-royal-blue/10 px-3 py-1 text-sm font-medium text-royal-blue">
+              <span className="inline-flex items-center rounded-[12px] bg-accent-primary/10 px-3 py-1 text-sm font-medium text-accent-primary">
                 {projectData.industry}
               </span>
             )}
             {projectData.platforms?.map((platform) => (
               <span
                 key={platform}
-                className="inline-flex items-center rounded-[12px] bg-emerald-green/10 px-3 py-1 text-sm font-medium text-emerald-green"
+                className="inline-flex items-center rounded-[12px] bg-accent-secondary/10 px-3 py-1 text-sm font-medium text-accent-secondary"
               >
                 {platform}
               </span>
@@ -134,9 +134,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Cover Media */}
       {projectData.cover_media_url && (
-        <Section className="bg-pure-white">
+        <Section className="bg-bg-primary">
           <div className="max-w-6xl">
-            <div className="aspect-16/10 w-full overflow-hidden rounded-[24px] bg-soft-grey flex items-center justify-center text-dark-text/20">
+            <div className="aspect-16/10 w-full overflow-hidden rounded-[24px] bg-bg-surface flex items-center justify-center text-text-secondary">
               <div className="font-semibold text-lg tracking-widest uppercase text-center px-6">Project Cover Placeholder</div>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Results Section */}
       {projectData.results && Object.keys(projectData.results).length > 0 && (
-        <Section className="bg-soft-white">
+        <Section className="bg-bg-surface">
           <div className="max-w-4xl">
             <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Results
@@ -153,10 +153,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {Object.entries(projectData.results).map(([key, value]) => (
                 <Card key={key} className="p-6 text-center">
-                  <div className="font-display text-3xl font-bold text-royal-blue">
+                  <div className="font-display text-3xl font-bold text-accent-primary">
                     {String(value)}
                   </div>
-                  <div className="mt-2 text-sm text-dark-text/60">
+                  <div className="mt-2 text-sm text-text-secondary">
                     {key.replaceAll('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}
                   </div>
                 </Card>
@@ -168,14 +168,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
       {/* Gallery Section */}
       {projectData.gallery && projectData.gallery.length > 0 && (
-        <Section className="bg-pure-white">
+        <Section className="bg-bg-primary">
           <div className="max-w-4xl">
             <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
               Gallery
             </h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               {projectData.gallery.map((imageUrl, index) => (
-                <div key={index} className="aspect-16/10 w-full overflow-hidden rounded-[16px] bg-soft-grey flex items-center justify-center text-dark-text/20 font-semibold text-xs uppercase">
+                <div key={index} className="aspect-16/10 w-full overflow-hidden rounded-[16px] bg-bg-surface flex items-center justify-center text-text-secondary font-semibold text-xs uppercase">
                   Gallery Image {index + 1}
                 </div>
               ))}
@@ -185,12 +185,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       )}
 
       {/* CTA Section */}
-      <Section className="bg-soft-white">
+      <Section className="bg-bg-surface">
         <div className="max-w-4xl text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
             Ready to achieve similar results?
           </h2>
-          <p className="mt-4 text-base text-dark-text/70 sm:text-lg leading-relaxed">
+          <p className="mt-4 text-base text-text-secondary sm:text-lg leading-relaxed">
             Let&apos;s discuss how we can help your brand grow with strategic social media
             marketing and compelling content.
           </p>

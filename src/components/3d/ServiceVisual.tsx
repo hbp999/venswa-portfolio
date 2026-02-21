@@ -54,7 +54,7 @@ export function ServiceVisual({ serviceType, className = "" }: ServiceVisualProp
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="w-24 h-24 rounded-full border-2 border-royal-blue/30"
+              className="w-24 h-24 rounded-full border-2 border-accent-primary/30"
             />
             <motion.div
               animate={{
@@ -96,7 +96,7 @@ export function ServiceVisual({ serviceType, className = "" }: ServiceVisualProp
                 ease: "easeInOut",
                 delay: 2
               }}
-              className="absolute w-16 h-16 rounded-lg bg-royal-blue/20"
+              className="absolute w-16 h-16 rounded-lg bg-accent-primary/20"
             />
           </>
         )}
@@ -113,7 +113,7 @@ export function ServiceVisual({ serviceType, className = "" }: ServiceVisualProp
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-28 h-28 rounded-full bg-emerald-green/20"
+              className="w-28 h-28 rounded-full bg-accent-secondary/20"
             />
             <motion.div
               animate={{
@@ -142,7 +142,7 @@ export function ServiceVisual({ serviceType, className = "" }: ServiceVisualProp
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-24 h-24 bg-royal-blue/20"
+              className="w-24 h-24 bg-accent-primary/20"
               style={{ clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' }}
             />
           </>
@@ -160,7 +160,7 @@ export function ServiceVisual({ serviceType, className = "" }: ServiceVisualProp
                 repeat: Infinity,
                 ease: "linear"
               }}
-              className="w-32 h-20 bg-emerald-green/20"
+              className="w-32 h-20 bg-accent-secondary/20"
             />
           </>
         )}

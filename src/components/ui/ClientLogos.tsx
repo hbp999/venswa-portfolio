@@ -20,9 +20,9 @@ const fadeUp = {
 };
 
 export const ClientLogos = () => (
-  <Section className="py-12 border-y border-soft-grey/70 bg-pure-white">
+  <Section className="py-12 border-y border-soft-grey/70 bg-bg-primary">
     <motion.div variants={fadeUp} className="max-w-7xl mx-auto">
-      <p className="text-center text-sm font-medium text-dark-text/60 mb-8 uppercase tracking-widest">
+      <p className="text-center text-sm font-medium text-text-secondary mb-8 uppercase tracking-widest">
         Trusted by leading brands
       </p>
     </motion.div>

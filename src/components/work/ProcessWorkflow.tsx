@@ -89,7 +89,7 @@ export function ProcessWorkflow() {
 
     return (
         <Section className="py-24 overflow-hidden relative">
-            <div className="absolute inset-0 bg-soft-white/50 -z-10" />
+            <div className="absolute inset-0 bg-bg-surface/50 -z-10" />
 
             <div className="grid lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto px-4">
                 {/* Circular Diagram Container */}
@@ -103,7 +103,7 @@ export function ProcessWorkflow() {
                         transition={{ type: "spring", stiffness: 60, damping: 20 }}
                     >
                         {/* Connecting Circle Line */}
-                        <div className="absolute inset-12 rounded-full border-2 border-dashed border-slate-200" />
+                        <div className="absolute inset-12 rounded-full border-2 border-dashed border-border-color/50" />
 
                         {/* Orbiting Steps */}
                         {steps.map((step, index) => {
@@ -121,8 +121,8 @@ export function ProcessWorkflow() {
                                     className={cn(
                                         "absolute w-20 h-20 -ml-10 -mt-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-20 border-4",
                                         activeStep === index
-                                            ? "scale-110 bg-white border-white ring-4 ring-black/5"
-                                            : "bg-white hover:bg-slate-50 border-slate-50 grayscale hover:grayscale-0"
+                                            ? "scale-110 bg-bg-surface border-bg-primary ring-4 ring-accent-primary/20"
+                                            : "bg-bg-primary hover:bg-bg-surface border-border-color/50 grayscale hover:grayscale-0"
                                     )}
                                     style={{
                                         left: `${left}%`,
@@ -137,7 +137,7 @@ export function ProcessWorkflow() {
                                     >
                                         <div className={cn(
                                             "w-14 h-14 rounded-full flex items-center justify-center transition-colors duration-300",
-                                            activeStep === index ? step.color : "bg-slate-100 text-slate-400"
+                                            activeStep === index ? step.color : "bg-bg-surface text-text-secondary"
                                         )}>
                                             <step.icon className={cn("w-7 h-7", activeStep === index ? "text-white" : "")} />
                                         </div>
@@ -150,15 +150,15 @@ export function ProcessWorkflow() {
                     {/* Center Static Content */}
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                         {/* Increased center circle size */}
-                        <div className="w-48 h-48 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center z-10">
-                            <span className="text-sm font-bold text-dark-text uppercase tracking-widest">Value Addition</span>
+                        <div className="w-48 h-48 rounded-full bg-bg-surface shadow-[0_0_40px_rgba(46,76,184,0.1)] border border-border-color flex items-center justify-center z-10">
+                            <span className="text-sm font-bold text-text-primary uppercase tracking-widest">Value Addition</span>
                         </div>
                     </div>
 
                     {/* Visual Connector to the Right */}
                     <div className="absolute left-full top-1/2 -translate-y-1/2 hidden lg:flex items-center z-0">
-                        <div className="w-12 h-0.5 border-t-2 border-dashed border-slate-300" />
-                        <div className="w-3 h-3 bg-slate-300 rounded-full -ml-1.5" />
+                        <div className="w-12 h-0.5 border-t-2 border-dashed border-border-color/60" />
+                        <div className="w-3 h-3 bg-border-color/60 rounded-full -ml-1.5" />
                     </div>
 
                 </div>
@@ -166,9 +166,9 @@ export function ProcessWorkflow() {
                 {/* Content Panel */}
                 <div className="relative">
                     {/* Desktop Connector Point */}
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-6 h-6 bg-white rotate-45 border-l border-b border-slate-100 hidden lg:block z-10" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 w-6 h-6 bg-bg-primary rotate-45 border-l border-b border-border-color/60 hidden lg:block z-10" />
 
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100 min-h-[400px] flex flex-col justify-center relative z-0">
+                    <div className="bg-bg-primary rounded-3xl p-8 md:p-12 shadow-[0_10px_40px_rgba(0,0,0,0.2)] border border-border-color min-h-[400px] flex flex-col justify-center relative z-0">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeStep}
@@ -183,11 +183,11 @@ export function ProcessWorkflow() {
                                     </span>
                                 </div>
 
-                                <h3 className="text-3xl md:text-4xl font-bold text-dark-text mb-6">
+                                <h3 className="text-3xl md:text-4xl font-bold text-text-primary mb-6">
                                     {steps[activeStep].title}
                                 </h3>
 
-                                <p className="text-xl text-dark-text/70 mb-10 leading-relaxed font-light">
+                                <p className="text-xl text-text-secondary mb-10 leading-relaxed font-light">
                                     {steps[activeStep].description}
                                 </p>
 
@@ -204,7 +204,7 @@ export function ProcessWorkflow() {
                                                 <div className={cn("mt-1 p-0.5 rounded-full shrink-0", steps[activeStep].color.replace('bg-', 'bg-opacity-20 text-'))}>
                                                     <CheckCircle2 className={cn("w-5 h-5", steps[activeStep].color.replace('bg-', 'text-'))} />
                                                 </div>
-                                                <span className="text-dark-text/80 text-lg font-medium">{detail}</span>
+                                                <span className="text-text-secondary text-lg font-medium">{detail}</span>
                                             </motion.div>
                                         ))}
                                     </div>

@@ -18,10 +18,10 @@ export default function Error({
 
     return (
         <Container className="flex h-[60vh] flex-col items-center justify-center text-center">
-            <h2 className="font-display text-2xl font-semibold text-dark-text">
+            <h2 className="font-display text-2xl font-semibold text-text-primary">
                 Something went wrong!
             </h2>
-            <p className="mt-2 text-dark-text/70 max-w-md">
+            <p className="mt-2 text-text-secondary max-w-md">
                 We apologize for the inconvenience. Please try again or contact support if the problem persists.
             </p>
             <div className="mt-6 flex gap-4">

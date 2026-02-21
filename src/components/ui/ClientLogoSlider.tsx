@@ -64,7 +64,7 @@ export function ClientLogoSlider({ clients }: { clients: ClientRow[] }) {
             >
               {group.map((client) => {
                 const content = (
-                  <div className="group flex items-center justify-center rounded-[16px] bg-soft-white px-4 py-5 transition-transform hover:scale-[1.02]">
+                  <div className="group flex items-center justify-center rounded-[16px] bg-bg-surface px-4 py-5 transition-transform hover:scale-[1.02]">
                     {client.logo_url ? (
                       <Image
                         src={client.logo_url}
@@ -74,7 +74,7 @@ export function ClientLogoSlider({ clients }: { clients: ClientRow[] }) {
                         className="h-8 w-auto opacity-70 grayscale transition-all group-hover:opacity-100 group-hover:grayscale-0"
                       />
                     ) : (
-                      <span className="text-sm font-medium text-dark-text/70">
+                      <span className="text-sm font-medium text-text-secondary">
                         {client.name}
                       </span>
                     )}
@@ -110,8 +110,8 @@ export function ClientLogoSlider({ clients }: { clients: ClientRow[] }) {
               key={index}
               onClick={() => goToSlide(index)}
               className={`h-1.5 w-1.5 rounded-full transition-all ${index === currentIndex
-                ? 'bg-royal-blue w-6'
-                : 'bg-soft-grey/80 hover:bg-soft-grey'
+                ? 'bg-accent-primary w-6'
+                : 'bg-bg-surface/80 hover:bg-bg-surface'
                 }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -124,11 +124,11 @@ export function ClientLogoSlider({ clients }: { clients: ClientRow[] }) {
         <>
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-pure-white/80 shadow-sm transition-all hover:bg-pure-white hover:shadow-md border border-soft-grey/20"
+            className="absolute left-0 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/80 shadow-sm transition-all hover:bg-bg-primary hover:shadow-md border border-soft-grey/20"
             aria-label="Previous clients"
           >
             <svg
-              className="h-4 w-4 text-dark-text"
+              className="h-4 w-4 text-text-primary"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -139,11 +139,11 @@ export function ClientLogoSlider({ clients }: { clients: ClientRow[] }) {
 
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-pure-white/80 shadow-sm transition-all hover:bg-pure-white hover:shadow-md border border-soft-grey/20"
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-bg-primary/80 shadow-sm transition-all hover:bg-bg-primary hover:shadow-md border border-soft-grey/20"
             aria-label="Next clients"
           >
             <svg
-              className="h-4 w-4 text-dark-text"
+              className="h-4 w-4 text-text-primary"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

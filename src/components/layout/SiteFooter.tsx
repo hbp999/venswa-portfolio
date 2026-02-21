@@ -10,14 +10,14 @@ import { Instagram, Youtube, Twitter } from "lucide-react";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-soft-white pt-20 pb-12 mt-20" style={{ marginTop: "0px" }}>
+    <footer className="bg-bg-surface pt-20 pb-12 mt-20 border-t border-border-color/30" style={{ marginTop: "0px" }}>
       <Container>
         {/* Banner Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-royal-blue to-emerald-green rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden mb-16"
+          className="bg-linear-to-r from-accent-primary to-accent-secondary rounded-2xl p-8 md:p-12 shadow-[0_4px_30px_rgba(99,102,241,0.2)] flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden mb-16"
         >
           <div className="relative z-10 text-center md:text-left">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
@@ -32,7 +32,7 @@ export function SiteFooter() {
             <Button
               href="/contact"
               variant="secondary"
-              className="bg-white text-royal-blue hover:bg-soft-white border-none text-base px-6 py-3 h-auto shadow-md whitespace-nowrap"
+              className="bg-bg-primary text-text-primary hover:bg-bg-surface border-border-color/50 text-base px-6 py-3 h-auto shadow-md whitespace-nowrap transition-colors"
             >
               Contact Us
             </Button>
@@ -63,7 +63,7 @@ export function SiteFooter() {
                 <motion.a
                   key={social.label}
                   href="#"
-                  className="bg-white p-2 rounded-full border border-soft-grey text-dark-text/70 hover:text-royal-blue hover:border-royal-blue/30 transition-all shadow-sm"
+                  className="bg-white/5 p-2 rounded-full border border-border-color text-text-secondary hover:text-accent-primary hover:border-accent-primary/30 hover:bg-accent-primary/5 transition-all shadow-sm"
                   aria-label={social.label}
                   whileHover={{ y: -2 }}
                 >
@@ -75,13 +75,13 @@ export function SiteFooter() {
 
           {/* Company Column */}
           <div className="space-y-4">
-            <h3 className="font-display font-semibold text-dark-text text-lg">Company</h3>
-            <ul className="flex flex-col gap-2.5 text-sm text-dark-text/70">
+            <h3 className="font-display font-semibold text-text-primary text-lg">Company</h3>
+            <ul className="flex flex-col gap-2.5 text-sm text-text-secondary">
               {['About', 'Contact', 'Careers', 'Team'].map((item) => (
                 <li key={item}>
                   <Link
                     href="#"
-                    className="hover:text-royal-blue transition-colors w-fit block"
+                    className="hover:text-accent-primary transition-colors w-fit block"
                   >
                     {item}
                   </Link>
@@ -92,13 +92,13 @@ export function SiteFooter() {
 
           {/* Services Column */}
           <div className="space-y-4">
-            <h3 className="font-display font-semibold text-dark-text text-lg">Services</h3>
-            <ul className="flex flex-col gap-2.5 text-sm text-dark-text/70">
+            <h3 className="font-display font-semibold text-text-primary text-lg">Services</h3>
+            <ul className="flex flex-col gap-2.5 text-sm text-text-secondary">
               {['Social Media', 'Content Creation', 'Brand Strategy', 'Ad Campaigns'].map((item) => (
                 <li key={item}>
                   <Link
                     href="#"
-                    className="hover:text-royal-blue transition-colors w-fit block"
+                    className="hover:text-accent-primary transition-colors w-fit block"
                   >
                     {item}
                   </Link>
@@ -109,13 +109,13 @@ export function SiteFooter() {
 
           {/* Resources Column */}
           <div className="space-y-4">
-            <h3 className="font-display font-semibold text-dark-text text-lg">Resources</h3>
-            <ul className="flex flex-col gap-2.5 text-sm text-dark-text/70">
+            <h3 className="font-display font-semibold text-text-primary text-lg">Resources</h3>
+            <ul className="flex flex-col gap-2.5 text-sm text-text-secondary">
               {['Blog', 'Privacy Policy', 'Terms of Service', 'Case Studies'].map((item) => (
                 <li key={item}>
                   <Link
                     href="#"
-                    className="hover:text-royal-blue transition-colors w-fit block"
+                    className="hover:text-accent-primary transition-colors w-fit block"
                   >
                     {item}
                   </Link>
@@ -125,9 +125,9 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-soft-grey/60 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-dark-text/50">
+        <div className="mt-16 border-t border-border-color/60 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-text-secondary/80">
           <p>© {new Date().getFullYear()} Venswa Studios. All rights reserved.</p>
-          <div className="w-full md:w-auto h-1 rounded-full bg-gradient-to-r from-royal-blue/20 to-emerald-green/20" />
+          <div className="w-full md:w-auto h-1 rounded-full bg-linear-to-r from-accent-primary/20 to-accent-secondary/20" />
         </div>
       </Container>
     </footer>

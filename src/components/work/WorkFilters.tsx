@@ -58,10 +58,10 @@ export function WorkFilters({
 
   return (
     <div className={`sticky top-20 z-40 transition-all duration-300 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 py-4 mb-10 ${isSticky
-      ? 'bg-pure-white/80 backdrop-blur-md border-b border-soft-grey/50 shadow-sm'
+      ? 'bg-bg-primary/80 backdrop-blur-md border-b border-soft-grey/50 shadow-sm'
       : 'bg-transparent'
       }`}>
-      <Container className="!px-0">
+      <Container className="px-0!">
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           <LayoutGroup>
             <div className="flex flex-col sm:flex-row gap-8 overflow-x-auto pb-2 scrollbar-hide mask-fade-right w-full">
@@ -124,7 +124,7 @@ function FilterGroup({
 
   return (
     <div className="flex flex-col gap-3 min-w-fit">
-      <span className="text-xs font-semibold text-dark-text/40 uppercase tracking-wider pl-1">{title}</span>
+      <span className="text-xs font-semibold text-text-secondary uppercase tracking-wider pl-1">{title}</span>
       <div className="flex flex-wrap gap-2">
         {options.map((option) => {
           const isActive = currentFilters[type] === option
@@ -135,13 +135,13 @@ function FilterGroup({
               onClick={() => updateFilter(type, option)}
               className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${isActive
                 ? 'text-white shadow-lg shadow-royal-blue/20'
-                : 'text-dark-text/70 hover:text-royal-blue hover:bg-royal-blue/5'
+                : 'text-text-secondary hover:text-accent-primary hover:bg-accent-primary/5'
                 }`}
             >
               {isActive && (
                 <motion.div
                   layoutId={`active-pill-${type}`}
-                  className="absolute inset-0 bg-royal-blue rounded-full"
+                  className="absolute inset-0 bg-accent-primary rounded-full"
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />

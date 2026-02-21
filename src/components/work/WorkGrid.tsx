@@ -34,11 +34,11 @@ export function WorkGrid({ projects }: { projects: ProjectRow[] }) {
                 animate={{ opacity: 1 }}
                 className="flex flex-col items-center justify-center py-20 text-center"
             >
-                <div className="w-16 h-16 bg-soft-grey rounded-full flex items-center justify-center mb-4 text-2xl">
+                <div className="w-16 h-16 bg-bg-surface rounded-full flex items-center justify-center mb-4 text-2xl">
                     🔍
                 </div>
-                <h3 className="text-xl font-bold text-dark-text mb-2">No projects found</h3>
-                <p className="text-dark-text/70 max-w-md mb-8">
+                <h3 className="text-xl font-bold text-text-primary mb-2">No projects found</h3>
+                <p className="text-text-secondary max-w-md mb-8">
                     We couldn&apos;t find any projects matching your current filters. Try adjusting your selection.
                 </p>
                 <Button

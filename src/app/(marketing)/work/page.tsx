@@ -35,7 +35,7 @@ export default async function WorkPage() {
 
       <ProcessWorkflow />
 
-      <Section className="bg-soft-white/50 min-h-screen pt-0">
+      <Section className="bg-bg-surface/50 min-h-screen pt-0">
         <WorkGrid projects={safeProjects} />
       </Section>
 
